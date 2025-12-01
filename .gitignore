@@ -1,0 +1,10 @@
+# Qt/CMake build files
+build/
+*.o
+*.obj
+*.exe
+*.log
+*.user
+*.qrc
+*.moc
+*.idx
