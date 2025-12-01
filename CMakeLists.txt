@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.16)
 
 project(GestionDeHotel VERSION 0.1 LANGUAGES CXX)
 
-# Activer le support Qt Designer automatiquement
+# Activer le support Qt Designer et MOC automatiquement
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
@@ -10,9 +10,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Charger Qt (Widgets + SQL)
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Sql)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets Sql)
+# Trouver Qt6 Widgets et SQL
+find_package(Qt6 REQUIRED COMPONENTS Widgets Sql)
 
 # --- INCLUSION DES DOSSIERS ---
 include_directories(
@@ -22,35 +21,38 @@ include_directories(
     controllers
 )
 
-# --- LISTE DES FICHIERS ---
+# --- LISTE DES FICHIERS SOURCES ---
 set(PROJECT_SOURCES
-        main.cpp
-        LoginWindow.cpp
-        LoginWindow.h
-        LoginWindow.ui
+    main.cpp
+    views/LoginWindow.cpp
+    views/LoginWindow.h
+    views/LoginWindow.ui
+    views/Dashboard.cpp
+    views/Dashboard.h
+    views/Dashboard.ui
+    database/connexionDB.cpp
+    database/connexionDB.h
+    controllers/logincontroller.cpp
+    controllers/logincontroller.h
+    # Ajoute ici d'autres fichiers source si nécessaire
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(GestionDeHotel
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
-else()
-    add_executable(GestionDeHotel ${PROJECT_SOURCES})
-endif()
+# --- CREATION DE L'EXECUTABLE ---
+qt_add_executable(GestionDeHotel
+    MANUAL_FINALIZATION
+    ${PROJECT_SOURCES}
+)
 
-# Lier avec Qt
+# Lier l’exécutable avec Qt6 Widgets et SQL
 target_link_libraries(GestionDeHotel PRIVATE
-    Qt${QT_VERSION_MAJOR}::Widgets
-    Qt${QT_VERSION_MAJOR}::Sql
+    Qt6::Widgets
+    Qt6::Sql
 )
 
-# Pour Windows (enlève la console noire)
+# Pour Windows : supprimer la console noire
 set_target_properties(GestionDeHotel PROPERTIES
     WIN32_EXECUTABLE TRUE
 )
 
 # Finalisation pour Qt6
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(GestionDeHotel)
-endif()
+qt_finalize_executable(GestionDeHotel)
