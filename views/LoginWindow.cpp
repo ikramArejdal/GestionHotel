@@ -28,8 +28,11 @@ void LoginWindow::on_btnLogin_clicked()
     } 
     else if (resultRole != "") {
         // Connexion réussie
-        QMessageBox::information(this, "Bienvenue", "Connexion réussie en tant que : " + resultRole);
-        this->close(); // Fermer le login
+       QMessageBox::information(this, "Bienvenue", "Connexion réussie !");
+Dashboard *dash = new Dashboard(resultRole);
+dash->show();
+this->close();
+// Fermer le login
     } 
     else {
         // Connexion échouée

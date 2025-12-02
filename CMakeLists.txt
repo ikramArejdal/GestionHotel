@@ -34,6 +34,9 @@ set(PROJECT_SOURCES
     database/connexionDB.h
     controllers/logincontroller.cpp
     controllers/logincontroller.h
+    controllers/chambreController.cpp
+    controllers/chambreController.h
+    models/Chambre.h
     # Ajoute ici d'autres fichiers source si nécessaire
 )
 

@@ -17,7 +17,7 @@ QString LoginController::authenticateUser(QString username, QString password)
 
     // 2. On prépare la requête (Sécurisée contre les injections SQL)
     QSqlQuery query;
-    query.prepare("SELECT role FROM users WHERE username = :user AND passwordHash = :pass");
+    query.prepare("SELECT role FROM users WHERE username = :user AND password_hash = :pass");
     query.bindValue(":user", username);
     query.bindValue(":pass", password);
 
