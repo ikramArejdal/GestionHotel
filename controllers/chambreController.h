@@ -13,9 +13,9 @@ public:
     ChambreController();
 
     QList<Chambre> getAllChambres();
-    bool ajouterChambre(QString numero, QString type, QString prix);
+    bool ajouterChambre(QString numero, QString type, double prix);
     bool supprimerChambre(QString id);
-    bool modifierChambre(int id, QString numero, QString type, QString prix, QString etat);
+    bool modifierChambre(int id, QString numero, QString type, double prix, QString etat);
 private:
     ConnexionDB db;
 };

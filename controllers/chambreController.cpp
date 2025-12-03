@@ -26,7 +26,7 @@ QList<Chambre> ChambreController::getAllChambres()
     return liste;
 }
 
-bool ChambreController::ajouterChambre(QString numero, QString type, QString prix)
+bool ChambreController::ajouterChambre(QString numero, QString type, double  prix)
 {
     db.openConnection();
     QSqlQuery q;
@@ -41,7 +41,7 @@ bool ChambreController::ajouterChambre(QString numero, QString type, QString pri
     return success;
 }
 
-bool ChambreController::modifierChambre(int id, QString numero, QString type, QString prix, QString etat)
+bool ChambreController::modifierChambre(int id, QString numero, QString type, double  prix, QString etat)
 {
     db.openConnection();
     QSqlQuery q;

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReservationView</class>
+ <widget class="QWidget" name="ReservationView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>900</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   
+   <!-- ZONE DE SAISIE -->
+   <item>
+    <widget class="QGroupBox" name="groupBox">
+     <property name="title">
+      <string>Nouvelle Réservation</string>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      
+      <!-- Choix Client -->
+      <item>
+       <widget class="QLabel" name="label"><property name="text"><string>Client:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboResClient">
+        <property name="minimumSize"><size><width>150</width><height>0</height></size></property>
+       </widget>
+      </item>
+
+      <!-- Choix Chambre -->
+      <item>
+       <widget class="QLabel" name="label_2"><property name="text"><string>Chambre:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboResChambre">
+        <property name="minimumSize"><size><width>120</width><height>0</height></size></property>
+       </widget>
+      </item>
+
+      <!-- Dates -->
+      <item>
+       <widget class="QLabel" name="label_3"><property name="text"><string>Du:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="dateResIn">
+        <property name="calendarPopup"><bool>true</bool></property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4"><property name="text"><string>Au:</string></property></widget>
+      </item>
+      <item>
+       <widget class="QDateEdit" name="dateResOut">
+        <property name="calendarPopup"><bool>true</bool></property>
+       </widget>
+      </item>
+
+      <!-- Prix Total -->
+      <item>
+       <widget class="QLineEdit" name="txtTotal">
+        <property name="readOnly"><bool>true</bool></property>
+        <property name="placeholderText"><string>0.00 DH</string></property>
+        <property name="styleSheet"><string>background-color: #e9ecef; font-weight: bold;</string></property>
+        <property name="alignment"><set>Qt::AlignCenter</set></property>
+        <property name="maximumSize"><size><width>100</width><height>16777215</height></size></property>
+       </widget>
+      </item>
+
+      <!-- Bouton -->
+      <item>
+       <widget class="QPushButton" name="btnValiderRes">
+        <property name="text"><string>Réserver</string></property>
+        <property name="styleSheet"><string>background-color: #28a745; color: white; font-weight: bold;</string></property>
+       </widget>
+      </item>
+
+     </layout>
+    </widget>
+   </item>
+
+   <!-- TABLEAU -->
+   <item>
+    <widget class="QTableWidget" name="tableReservations">
+     <property name="selectionBehavior"><enum>QAbstractItemView::SelectRows</enum></property>
+     <property name="selectionMode"><enum>QAbstractItemView::SingleSelection</enum></property>
+     <attribute name="horizontalHeaderStretchLastSection"><bool>true</bool></attribute>
+     <column><property name="text"><string>ID</string></property></column>
+     <column><property name="text"><string>Client</string></property></column>
+     <column><property name="text"><string>Chambre</string></property></column>
+     <column><property name="text"><string>Entrée</string></property></column>
+     <column><property name="text"><string>Sortie</string></property></column>
+     <column><property name="text"><string>Total (DH)</string></property></column>
+     <column><property name="text"><string>Action</string></property></column>
+    </widget>
+   </item>
+
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

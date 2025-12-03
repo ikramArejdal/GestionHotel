@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include "chambreController.h"
-#include "EmployeController.h" // <--- AJOUT
+#include "EmployeController.h"
 
 namespace Ui { class Dashboard; }
 
@@ -16,33 +16,35 @@ public:
     ~Dashboard();
 
 private slots:
-    // --- Chambres ---
+    // --- Slots Chambres ---
     void on_btnAjouterChambre_clicked();
     void on_btnSauvegarder_clicked();
-    void on_btnSupprimerChambre_clicked();
-    void on_tableChambres_cellClicked(int, int);
 
-
-    // --- Employés (NOUVEAU) ---
+    // --- Slots Employés ---
     void on_btnAjouterEmp_clicked();
     void on_btnSauvegarderEmp_clicked();
+
+    // Le bouton pour changer d'onglet (celui du haut)
     void on_btnEmployes_clicked();
+
+    // Note : On a SUPPRIMÉ les slots de réservation et de suppression chambre
+    // car ils sont gérés ailleurs ou différemment.
 
 private:
     Ui::Dashboard *ui;
     QString currentRole;
-    
+
     // Contrôleurs
     ChambreController chambreCtrl;
-    EmployeController employeCtrl; // <--- AJOUT
+    EmployeController employeCtrl;
 
-    // Variables d'état pour modification
+    // Variables pour modification
     int idChambreEnModif = -1;
-    int idEmployeEnModif = -1;     // <--- AJOUT
+    int idEmployeEnModif = -1;
 
-    // Fonctions
+    // Fonctions d'affichage
     void chargerListeChambres();
-    void chargerListeEmployes();   // <--- AJOUT
+    void chargerListeEmployes();
     void applyingRole();
 };
 

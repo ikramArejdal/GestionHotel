@@ -38,12 +38,19 @@ set(PROJECT_SOURCES
     controllers/chambreController.h
     controllers/employeController.cpp
     controllers/employeController.h
+    controllers/reservationController.cpp
+    controllers/reservationController.h
+
     models/Chambre.h
     models/Employe.h
+    models/Reservation.h
     views/EmployeView.cpp
     views/EmployeView.h
     views/EmployeView.ui
-    
+    views/ReservationView.cpp
+    views/ReservationView.h 
+    views/ReservationView.ui
+
     # Ajoute ici d'autres fichiers source si nécessaire
 )
 
