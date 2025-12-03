@@ -36,7 +36,14 @@ set(PROJECT_SOURCES
     controllers/logincontroller.h
     controllers/chambreController.cpp
     controllers/chambreController.h
+    controllers/employeController.cpp
+    controllers/employeController.h
     models/Chambre.h
+    models/Employe.h
+    views/EmployeView.cpp
+    views/EmployeView.h
+    views/EmployeView.ui
+    
     # Ajoute ici d'autres fichiers source si nécessaire
 )
 

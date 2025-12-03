@@ -41,6 +41,22 @@ bool ChambreController::ajouterChambre(QString numero, QString type, QString pri
     return success;
 }
 
+bool ChambreController::modifierChambre(int id, QString numero, QString type, QString prix, QString etat)
+{
+    db.openConnection();
+    QSqlQuery q;
+
+    q.prepare("UPDATE chambres SET numero = :n, type = :t, prix = :p, etat = :e WHERE id = :id");
+    q.bindValue(":n", numero);
+    q.bindValue(":t", type);
+    q.bindValue(":p", prix);
+    q.bindValue(":e", etat);
+    q.bindValue(":id", id);
+
+    bool success = q.exec();
+    db.closeConnection();
+    return success;
+}
 bool ChambreController::supprimerChambre(QString id)
 {
     db.openConnection();

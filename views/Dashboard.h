@@ -2,39 +2,48 @@
 #define DASHBOARD_H
 
 #include <QMainWindow>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QDebug>
-#include <QMessageBox>
 #include "chambreController.h"
+#include "EmployeController.h" // <--- AJOUT
 
-
-namespace Ui {
-class Dashboard;
-}
+namespace Ui { class Dashboard; }
 
 class Dashboard : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Dashboard(QString role,QWidget *parent = nullptr);
+    explicit Dashboard(QString role, QWidget *parent = nullptr);
     ~Dashboard();
 
 private slots:
-    // Slot automatique pour le bouton ajouter
+    // --- Chambres ---
     void on_btnAjouterChambre_clicked();
+    void on_btnSauvegarder_clicked();
     void on_btnSupprimerChambre_clicked();
+    void on_tableChambres_cellClicked(int, int);
+
+
+    // --- Employés (NOUVEAU) ---
+    void on_btnAjouterEmp_clicked();
+    void on_btnSauvegarderEmp_clicked();
+    void on_btnEmployes_clicked();
 
 private:
     Ui::Dashboard *ui;
-    ChambreController chambreCtrl;
     QString currentRole;
+    
+    // Contrôleurs
+    ChambreController chambreCtrl;
+    EmployeController employeCtrl; // <--- AJOUT
 
-    // Fonction pour récupérer la liste depuis MySQL et remplir le tableau
+    // Variables d'état pour modification
+    int idChambreEnModif = -1;
+    int idEmployeEnModif = -1;     // <--- AJOUT
+
+    // Fonctions
     void chargerListeChambres();
-    void appliquerRole();
+    void chargerListeEmployes();   // <--- AJOUT
+    void applyingRole();
 };
 
 #endif // DASHBOARD_H

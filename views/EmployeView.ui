@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>EmployeView</class> <!-- CORRECTION ICI -->
+ <widget class="QWidget" name="EmployeView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Gestion des Employés</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="tableEmployes">
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <attribute name="horizontalHeaderStretchLastSection">
+      <bool>true</bool>
+     </attribute>
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Nom</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Prénom</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Poste</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Téléphone</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Salaire</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="formLayout">
+     <item>
+      <widget class="QLineEdit" name="inputNom">
+       <property name="placeholderText">
+        <string>Nom</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="inputPrenom">
+       <property name="placeholderText">
+        <string>Prénom</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="inputPoste">
+       <property name="placeholderText">
+        <string>Poste</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="inputTel">
+       <property name="placeholderText">
+        <string>Téléphone</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="inputSalaire">
+       <property name="placeholderText">
+        <string>Salaire</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="btnLayout">
+     <item>
+      <widget class="QPushButton" name="btnAjouter">
+       <property name="text">
+        <string>Ajouter</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnSupprimer">
+       <property name="text">
+        <string>Supprimer Sélection</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
