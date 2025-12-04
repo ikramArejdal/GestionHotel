@@ -1,10 +1,14 @@
 #include "Dashboard.h"
 #include "ui_Dashboard.h"
+<<<<<<< HEAD
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
 #include "ReservationView.h"
 // Note : On a retiré "EmployeView.h" car tout est géré ici maintenant
+=======
+#include "clientController.h"
+>>>>>>> cc71cd9 (Gestion Clients)
 
 Dashboard::Dashboard(QString role, QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +33,7 @@ Dashboard::Dashboard(QString role, QWidget *parent) :
     resLayout->addWidget(resView);
     resLayout->setContentsMargins(0,0,0,0); 
 
+<<<<<<< HEAD
     // --- INITIALISATION ---
     chargerListeChambres();
     chargerListeEmployes();
@@ -39,6 +44,24 @@ Dashboard::Dashboard(QString role, QWidget *parent) :
     // On cache les boutons de sauvegarde au démarrage
     ui->btnSauvegarder->setVisible(false);
     ui->btnSauvegarderEmp->setVisible(false);
+=======
+    // 2. Charger les données au démarrage
+    chargerListeChambres(); // Charger d'abord
+    appliquerRole();        // Appliquer les restrictions ensuite
+
+    // Configuration du tableau des clients (5 colonnes)
+    // Configuration du tableau des clients (6 colonnes : + colonne Action)
+   /* ui->tableClients->setColumnCount(6);
+    QStringList titresClients;
+    titresClients << "ID" << "Nom" << "Prénom" << "CIN" << "Téléphone" << "Action";
+    ui->tableClients->setHorizontalHeaderLabels(titresClients);
+    ui->tableClients->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->tableClients->setColumnHidden(0, true);*/
+
+    clientView = new ClientView(this);
+    ui->layoutClients->addWidget(clientView);
+
+>>>>>>> cc71cd9 (Gestion Clients)
 }
 
 Dashboard::~Dashboard() { delete ui; }
@@ -257,6 +280,7 @@ void Dashboard::on_btnSauvegarder_clicked()
     }
 }
 
+<<<<<<< HEAD
 void Dashboard::on_btnEmployes_clicked()
 {
     // Ce bouton sert maintenant uniquement à changer d'onglet
@@ -267,3 +291,36 @@ void Dashboard::on_btnEmployes_clicked()
         QMessageBox::warning(this, "Accès refusé", "Vous n'avez pas les droits.");
     }
 }
+=======
+/*void Dashboard::on_btnAjouterClient_clicked()
+{
+    QString nom       = ui->lineNom->text();
+    QString prenom    = ui->linePrenom->text();
+    QString cin       = ui->lineCin->text();
+    QString telephone = ui->lineTelephone->text();
+
+    // Vérification des champs obligatoires
+    if (nom.isEmpty() || prenom.isEmpty() || cin.isEmpty() || telephone.isEmpty()) {
+        QMessageBox::warning(this, "Attention", "Veuillez remplir tous les champs.");
+        return;
+    }
+
+    // Appel du controller (adapte le nom si nécessaire : clientCtrl / clientController)
+    bool ok = clientCtrl.ajouterClient(nom, prenom, cin, telephone);
+
+    if (ok) {
+        QMessageBox::information(this, "Succès", "Client ajouté !");
+        chargerListeClients();   // équivalent de chargerListeChambres()
+        ui->lineNom->clear();
+        ui->linePrenom->clear();
+        ui->lineCin->clear();
+        ui->lineTelephone->clear();
+    } else {
+        QMessageBox::critical(this, "Erreur", "Impossible d'ajouter le client.");
+    }
+}*/
+
+
+
+
+>>>>>>> cc71cd9 (Gestion Clients)

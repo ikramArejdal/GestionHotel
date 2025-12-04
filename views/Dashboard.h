@@ -3,7 +3,12 @@
 
 #include <QMainWindow>
 #include "chambreController.h"
+<<<<<<< HEAD
 #include "EmployeController.h"
+=======
+#include "clientController.h"
+#include "ClientView.h"
+>>>>>>> cc71cd9 (Gestion Clients)
 
 namespace Ui { class Dashboard; }
 
@@ -18,6 +23,7 @@ public:
 private slots:
     // --- Slots Chambres ---
     void on_btnAjouterChambre_clicked();
+<<<<<<< HEAD
     void on_btnSauvegarder_clicked();
 
     // --- Slots Employés ---
@@ -46,6 +52,20 @@ private:
     void chargerListeChambres();
     void chargerListeEmployes();
     void applyingRole();
+=======
+    void on_btnSupprimerChambre_clicked();
+   // void on_btnAjouterClient_clicked();
+private:
+    Ui::Dashboard *ui;
+    ChambreController chambreCtrl;
+    ClientController clientCtrl;
+    QString currentRole;
+    // Fonction pour récupérer la liste depuis MySQL et remplir le tableau
+    void chargerListeChambres();
+    //void chargerListeClient();
+    void appliquerRole();
+    ClientView *clientView;
+>>>>>>> cc71cd9 (Gestion Clients)
 };
 
 #endif // DASHBOARD_H

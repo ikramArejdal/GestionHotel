@@ -30,12 +30,16 @@ set(PROJECT_SOURCES
     views/Dashboard.cpp
     views/Dashboard.h
     views/Dashboard.ui
+    views/ClientView.cpp
+    views/ClientView.h
+    views/ClientView.ui
     database/connexionDB.cpp
     database/connexionDB.h
     controllers/logincontroller.cpp
     controllers/logincontroller.h
     controllers/chambreController.cpp
     controllers/chambreController.h
+<<<<<<< HEAD
     controllers/employeController.cpp
     controllers/employeController.h
     controllers/reservationController.cpp
@@ -51,6 +55,13 @@ set(PROJECT_SOURCES
     views/ReservationView.h 
     views/ReservationView.ui
 
+=======
+    controllers/clientController.h
+    controllers/clientController.cpp
+    models/Chambre.h
+    models/Client.h
+    
+>>>>>>> cc71cd9 (Gestion Clients)
     # Ajoute ici d'autres fichiers source si nécessaire
 )
 
